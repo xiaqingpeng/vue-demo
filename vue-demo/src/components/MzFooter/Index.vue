@@ -18,6 +18,7 @@
 <style lang="less">
 .mz-footer {
   height: 48px;
+  
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -25,13 +26,14 @@
   left: 0;
   bottom: 0;
   width: 100%;
-  background: #fff;
+  background: orchid;
+  opacity: 0.7;
   a {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: #797d82;
+    color: black;
     text-decoration: none;
 
     i {

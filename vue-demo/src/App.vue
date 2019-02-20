@@ -1,16 +1,18 @@
 <template>
   <div>
-    <Film></Film>
+  
+   
     <router-view></router-view>
   
   </div>
 </template>
 
 <script>
-import  Film   from   './views/Film.vue'
+import MzFooter from './components/MzFooter/Index';
 export default {
-  components:{
-    Film 
-  }
+    components:{
+         MzFooter
+    }
 }
 </script>
+<

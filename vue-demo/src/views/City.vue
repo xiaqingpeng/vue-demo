@@ -1,10 +1,18 @@
 
 <template>
-  <div>
-    <h1>我是个人中心页</h1>
+  <div id="city"> 
+    <h1>我是城市选择页面</h1>
   </div>
 </template>
 <script>
 export default {
 }
 </script>
+<style lang="less" >
+   #city{
+     color: cyan;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+   }
+</style>
