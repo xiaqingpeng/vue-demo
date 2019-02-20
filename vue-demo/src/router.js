@@ -23,7 +23,7 @@ export default new Router({
           path: 'center',
           component: Center
         }, {
-          path: '',
+          path: '*',//设置通配符
           redirect:'./films'
         }
 
