@@ -7,11 +7,15 @@
 </template>
 <script>
 export default {
-    create(){
-        console.log(this.$route)
-        console.log(this.$router)
-    }
-}
+  props: {
+    id:Number,
+    sex:String   
+  },
+  create() {
+    console.log(this.$route);
+    console.log(this.$router);
+  }
+};
 </script>
 <style lang="less">
 #detail {

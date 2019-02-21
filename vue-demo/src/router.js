@@ -27,8 +27,15 @@ export default new Router({
     },
     {
       path: '/detail/:id',
-      component: Detail
+      component: Detail,
+      props:true //  路由组件传参时，路由配置文件中，将props选项设置为true;
+     /*  props:(router) => {
+        return {
+          sex: route.query.sex
+        }
+      } */
     },
+
     {
       name: "hhh",
       path: '/city',
