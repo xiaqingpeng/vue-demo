@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+    <script src="./js/vuex.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{count}}</h1>
+        <button @click="setAdd">增加</button>
+        <button @click="setRemove">减少 </button>
+    </div>
+
+</body>
+
+</html>
+<script>
+    //创建仓库
+    const store = new Vuex.Store({
+        //状态  (需要在多个组件中复用的数据)
+        state: {
+            count: 0
+        },
+        mutations: {
+            add(state) {
+                state.count++;
+            },
+            remove(state){
+                state.count--;
+            }
+        }
+    })
+    new Vue({
+        el:'#app',  
+        computed: {
+            count(){
+             return  store.state.count 
+            }
+        },
+        methods: {
+            setAdd(){
+               // store.commit()  触发状态变更
+                store.commit("add")
+            },
+            setRemove(){
+                store.commit("remove")
+            }
+        },
+        
+
+    })
+</script>
