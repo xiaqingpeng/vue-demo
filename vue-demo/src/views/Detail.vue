@@ -8,8 +8,8 @@
 <script>
 export default {
   props: {
-    id:Number,
-    sex:String   
+    id:String ,
+    //sex:String   
   },
   create() {
     console.log(this.$route);
