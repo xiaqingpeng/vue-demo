@@ -11,34 +11,39 @@ Vue.use(Router)
 
 export default new Router({
   mode: 'history',
-  routes: [
-    {
-    path: '/',
-    component: Home,
-    children: [{
-      path: 'films',
-      component: Film
-    }, {
-      path: 'cinemas',
-      component: Cinema
-    }, {
-      path: 'center',
-      component: Center
+  routes: [{
+      path: '/',
+      component: Home,
+      children: [{
+        path: 'films',
+        component: Film
+      }, {
+        path: 'cinemas',
+        component: Cinema
+      }, {
+        path: 'center',
+        component: Center
+      }, ]
     },
-    ]
-  },
-  {
-    path:'/detail/:id',
-    component: Detail
-  },
-  {  name:"hhh",
-    path: '/city',
-    component: City
-  },
+    {
+      path: '/detail/:id',
+      component: Detail
+    },
+    {
+      name: "hhh",
+      path: '/city',
+      //别名
+      alias:'/abc',
+      components: {
+        top: City,
+        //设置默认值
+        default:Detail  
+      }
+    },
 
-  {
-    path: '*', //设置通配符
-    redirect: '/films'
-  }
+    {
+      path: '*', //设置通配符
+      redirect: '/films'
+    }
   ]
 })
