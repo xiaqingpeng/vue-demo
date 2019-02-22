@@ -73,8 +73,8 @@ let router = new Router({
       }
     },
     {
-      path:'/login',
-      component:Login
+      path: '/login',
+      component: Login
     },
     {
       path: '*', //设置通配符
@@ -94,14 +94,15 @@ router.beforeEach((to, from, next) => {
   Nprogress.start();
   if (to.path === '/card' || to.path === '/money' || to.path === '/system') {
     next({
-      path: '/login'
+      path: '/login',
+     
     })
   } else {
     next();
   }
 })
 //全局后置守卫
-router.afterEach((to,from)=>{
+router.afterEach((to, from) => {
   Nprogress.done()
 })
 export default router;
