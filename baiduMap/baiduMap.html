@@ -36,8 +36,14 @@
     //6.地图初始化，同时设置地图展示级别
     map.centerAndZoom(point, 15);
     //添加控件
-    map.addControl(new BMap.NavigationControl());//平移缩放
-    map.addControl(new BMap.ScaleControl());//比例尺
-    map.addControl(new BMap.OverviewMapControl());//缩略视图
-    map.addControl(new BMap.MapTypeControl());//地图类型
+    map.addControl(new BMap.NavigationControl()); //平移缩放
+    map.addControl(new BMap.ScaleControl()); //比例尺
+    map.addControl(new BMap.OverviewMapControl()); //缩略视图
+    map.addControl(new BMap.MapTypeControl()); //地图类型
+    //定位城市
+    var myCity = new BMap.LocalCity()
+    myCity.get((result) => {
+        console.log(result)
+        console.log(result.name) //深圳
+    })
 </script>
