@@ -8,7 +8,10 @@ import Center from './views/Center.vue'
 import City from './views/City.vue'
 import Home from './views/Home.vue'
 import Detail from './views/Detail.vue'
-import Login from './views/Login.vue'
+import Login from './views/Login.vue'   
+import Money from './views/Money.vue'
+import System from './views/System.vue'
+import Card from './views/Card.vue'
 
 Vue.use(Router)
 let router = new Router({
@@ -52,25 +55,13 @@ let router = new Router({
     },
     {
       path: '/card',
-      component: {
-        render(h) {
-          return h("div", "登录页面")
-        }
-      }
+      component: Card
     }, {
       path: '/money',
-      component: {
-        render(h) {
-          return h("div", "余额页面")
-        }
-      }
+      component:Money
     }, {
       path: '/system',
-      component: {
-        render(h) {
-          return h("div", "系统设置页面")
-        }
-      }
+      component:System
     },
     {
       path:'/login',
@@ -92,13 +83,14 @@ let router = new Router({
 //全局前置守卫
 router.beforeEach((to, from, next) => {
   Nprogress.start();
-  if (to.path === '/card' || to.path === '/money' || to.path === '/system') {
+  /* if (to.path === '/card' || to.path === '/money' || to.path === '/system') {
     next({
       path: '/login'
     })
   } else {
     next();
-  }
+  }  */
+  next();
 })
 //全局后置守卫
 router.afterEach((to,from)=>{
