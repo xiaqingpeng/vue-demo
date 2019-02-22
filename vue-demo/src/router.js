@@ -8,10 +8,10 @@ import Center from './views/Center.vue'
 import City from './views/City.vue'
 import Home from './views/Home.vue'
 import Detail from './views/Detail.vue'
-import Login from './views/Login.vue'   
+import Login from './views/Login.vue'
+import Card from './views/Card.vue'
 import Money from './views/Money.vue'
 import System from './views/System.vue'
-import Card from './views/Card.vue'
 
 Vue.use(Router)
 let router = new Router({
@@ -55,7 +55,7 @@ let router = new Router({
     },
     {
       path: '/card',
-      component: Card
+      component:Card
     }, {
       path: '/money',
       component:Money
@@ -64,7 +64,7 @@ let router = new Router({
       component:System
     },
     {
-      path:'/login',
+      path: '/login',
       component:Login
     },
     {
@@ -83,17 +83,19 @@ let router = new Router({
 //全局前置守卫
 router.beforeEach((to, from, next) => {
   Nprogress.start();
-  /* if (to.path === '/card' || to.path === '/money' || to.path === '/system') {
+  if (to.path === '/card' || to.path === '/money' || to.path === '/system') {
     next({
-      path: '/login'
+      path: '/login',
+      query: {
+        newPath: to.fullPath
+      }
     })
   } else {
     next();
-  }  */
-  next();
+  }
 })
 //全局后置守卫
-router.afterEach((to,from)=>{
-  Nprogress.done()
-})
+// router.afterEach((to, from) => {
+//   Nprogress.done()
+// })
 export default router;
