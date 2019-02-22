@@ -1,3 +1,5 @@
+import Nprogress from 'nprogress'
+import 'nprogress/nprogress.css'
 import Vue from 'vue'
 import Router from 'vue-router'
 import Film from './views/Film.vue'
@@ -6,6 +8,8 @@ import Center from './views/Center.vue'
 import City from './views/City.vue'
 import Home from './views/Home.vue'
 import Detail from './views/Detail.vue'
+import Login from './views/Login.vue'
+
 Vue.use(Router)
 let router = new Router({
 
@@ -49,9 +53,9 @@ let router = new Router({
     {
       path: '/card',
       component: {
-       render(h){
-         return  h("div","卖座卡页面")
-       }
+        render(h) {
+          return h("div", "登录页面")
+        }
       }
     }, {
       path: '/money',
@@ -69,16 +73,35 @@ let router = new Router({
       }
     },
     {
+      path:'/login',
+      component:Login
+    },
+    {
       path: '*', //设置通配符
       redirect: '/films'
     }
   ],
 })
 //router.beforeEach((to, from, next) => {
-  //to  将要去的路由的路由对象
-  // from  从哪里去的路由的路由对象
-  //next  是否允许去 next(false)/next(true)
-  //console.log(to, from);
+//to  将要去的路由的路由对象
+// from  从哪里去的路由的路由对象
+//next  是否允许去 next(false)/next(true)
+//console.log(to, from);
 
 //})
+//全局前置守卫
+router.beforeEach((to, from, next) => {
+  Nprogress.start();
+  if (to.path === '/card' || to.path === '/money' || to.path === '/system') {
+    next({
+      path: '/login'
+    })
+  } else {
+    next();
+  }
+})
+//全局后置守卫
+router.afterEach((to,from)=>{
+  Nprogress.done()
+})
 export default router;
