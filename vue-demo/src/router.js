@@ -2,39 +2,37 @@ import Nprogress from 'nprogress'
 import 'nprogress/nprogress.css'
 import Vue from 'vue'
 import Router from 'vue-router'
-import Film from './views/Film.vue'
-import Cinema from './views/Cinema.vue'
-import Center from './views/Center.vue'
-import City from './views/City.vue'
-import Home from './views/Home.vue'
-import Detail from './views/Detail.vue'
-import Login from './views/Login.vue'
-import Card from './views/Card.vue'
-import Money from './views/Money.vue'
-import System from './views/System.vue'
+// import Film from './views/Film.vue'
+// import Cinema from './views/Cinema.vue'
+// import Center from './views/Center.vue'
+// import City from './views/City.vue'
+// import Home from './views/Home.vue'
+// import Detail from './views/Detail.vue'
+// import Login from './views/Login.vue'
+// import Card from './views/Card.vue'
+// import Money from './views/Money.vue'
+// import System from './views/System.vue'
 
 Vue.use(Router)
 let router = new Router({
-
   mode: 'hash',
-
   routes: [{
       path: '/',
-      component: Home,
+      component: () => import('./views/Home.vue'),
       children: [{
         path: 'films',
-        component: Film
+        component: () => import('./views/Film.vue')
       }, {
         path: 'cinemas',
-        component: Cinema
+        component: () => import('./views/Cinema.vue')
       }, {
         path: 'center',
-        component: Center
+        component: () => import('./views/Center.vue')
       }, ]
     },
     {
       path: '/detail/:id',
-      component: Detail,
+      component: () => import('./views/Detail.vue'),
       props: true //  路由组件传参时，路由配置文件中，将props选项设置为true;
       /*  props:(router) => {
          return {
@@ -42,37 +40,37 @@ let router = new Router({
          }
        } */
     },
-
     {
       name: "hhh",
       path: '/city',
       //别名
       alias: '/abc',
       components: {
-        top: City,
+        top:() => import('./views/City.vue'),
         //设置默认值
-        default: Detail
+        default: () => import('./views/Detail.vue'),
       }
     },
     {
       path: '/card',
-      component: Card
+      component: () => import('./views/Card.vue')
     }, {
       path: '/money',
-      component: Money
+      component: () => import('./views/Money.vue')
     }, {
       path: '/system',
-      component: System
+      component: () => import('./views/System.vue')
     },
     {
       path: '/login',
-      component: Login
+      component: () => import('./views/Login.vue')
     },
     {
       path: '*', //设置通配符
       redirect: '/films'
     }
   ],
+  //滚动行为
   scrollBehavior(to, from, savedPosition) {
     return {
       x: 0,
