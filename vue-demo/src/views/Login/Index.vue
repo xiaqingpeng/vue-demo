@@ -57,11 +57,8 @@ export default {
         }
       });
     }
-  },
-  created(){
-  this.handleLogin()
   }
-
+ 
 };
 </script>
 

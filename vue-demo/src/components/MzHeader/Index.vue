@@ -1,7 +1,7 @@
 <template>
   <header class="mz-header">
     <div class="title">
-      <div>{{ title }} 我是title</div>
+      <div class="C_title">{{ title }}</div>
     </div>
   </header>
 </template>
@@ -39,6 +39,9 @@ export default {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    .C_title{
+      font-size: 25px
+    }
   }
 }
 </style>

@@ -4,13 +4,14 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 //创建仓库
 const store = new Vuex.Store({
-    //状态-项目中需要复用数据
-    state:{
-     curCityName:"深圳"
-    },
-    mutations:{
-
+  //状态-项目中需要复用数据
+  state: {
+    curCityName: "深圳"
+  },
+  mutations: {
+    curCityName(state) {
+      state.curCityName="麻城"
     }
+  }
 })
-export default  store;
-   
+export default store;

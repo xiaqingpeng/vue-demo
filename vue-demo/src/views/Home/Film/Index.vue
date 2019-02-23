@@ -2,7 +2,7 @@
   <div class="home-film">
     <mz-banner></mz-banner>
     <mz-tabs></mz-tabs>
-    <button @click="gocity">去城市耍耍</button>
+    <button @click="gocity">城市</button>
   </div>
 </template>
 
