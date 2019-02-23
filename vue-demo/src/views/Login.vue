@@ -50,7 +50,7 @@ export default {
           var x = _this.$route.query.newPath;
           console.log(x);
           console.log(typeof(x))
-          _this.$router.replace({
+          _this.$router.push({
             path: x
           });
         } else {
@@ -58,7 +58,9 @@ export default {
         }
       });
     }
-  }
+  },
+  
+
 };
 </script>
 
