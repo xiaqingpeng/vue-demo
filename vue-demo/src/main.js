@@ -2,6 +2,7 @@
  import App from './App.vue';
  import router from './router.js';
  import './assets/styles/reset.less';
+ import './assets/styles/common.less';
  import   store  from  './store/index.js'
  import    'nprogress/nprogress.css'
  
