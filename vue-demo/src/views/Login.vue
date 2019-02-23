@@ -37,30 +37,27 @@ export default {
   },
   methods: {
     handleLogin() {
+      console.log(this);
       var _this = this;
       axios.get("./json/login.json").then(function(res) {
         let data = res.data;
-        console.log(data);
+        // console.log(data);
         console.log(data[0].username, data[0].password);
         if (
           _this.username === data[0].username &&
           _this.password === data[0].password
         ) {
           console.log("登录成功");
-          var x = _this.$route.query.newPath;
-          console.log(x);
-          console.log(typeof(x))
-          _this.$router.push({
-            path: x
+
+          _this.$router.replace({
+            path:'/money'
           });
         } else {
           console.log("登录失败");
         }
       });
     }
-  },
-  
-
+  }
 };
 </script>
 

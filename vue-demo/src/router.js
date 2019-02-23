@@ -17,6 +17,7 @@ Vue.use(Router)
 let router = new Router({
 
   mode: 'hash',
+
   routes: [{
       path: '/',
       component: Home,
@@ -55,23 +56,29 @@ let router = new Router({
     },
     {
       path: '/card',
-      component:Card
+      component: Card
     }, {
       path: '/money',
-      component:Money
+      component: Money
     }, {
       path: '/system',
-      component:System
+      component: System
     },
     {
       path: '/login',
-      component:Login
+      component: Login
     },
     {
       path: '*', //设置通配符
       redirect: '/films'
     }
   ],
+  scrollBehavior(to, from, savedPosition) {
+    return {
+      x: 0,
+      y: 0
+    }
+  }
 })
 //router.beforeEach((to, from, next) => {
 //to  将要去的路由的路由对象
@@ -83,19 +90,21 @@ let router = new Router({
 //全局前置守卫
 router.beforeEach((to, from, next) => {
   Nprogress.start();
-  if (to.path === '/card' || to.path === '/money' || to.path === '/system') {
+  let list = ['/card', '/money', '/system'];
+  if (list.indexOf(to.path) > -1) {
     next({
       path: '/login',
       query: {
-        newPath: to.fullPath
-      }
+        redirect: to.fullPath
+      },
     })
   } else {
-    next();
-  }
+    next()
+  };
+
 })
 //全局后置守卫
-// router.afterEach((to, from) => {
-//   Nprogress.done()
-// })
+router.afterEach((to, from) => {
+  Nprogress.done()
+})
 export default router;
