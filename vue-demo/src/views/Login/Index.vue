@@ -50,14 +50,18 @@ export default {
           console.log("登录成功");
 
           _this.$router.replace({
-            path:'/money'
+            path: "/money"
           });
         } else {
           console.log("登录失败");
         }
       });
     }
+  },
+  created(){
+  this.handleLogin()
   }
+
 };
 </script>
 
