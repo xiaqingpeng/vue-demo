@@ -1,6 +1,13 @@
 <template>
   <div>
-    <router-view></router-view>
+    <transition
+      appear
+      mode="out-in"
+      enter-active-class="animated bounceInUp"
+      leave-active-class="animated bounceOutDown"
+    >
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 <script>

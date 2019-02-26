@@ -2,7 +2,10 @@
 <template>
   <div class="mz-home">
     <!-- 这里得要有个坑，去显示  film cinema center -->
-    <router-view></router-view>
+    <transition appear mode="out-in" enter-active-class="animated bounceInUp"  leave-active-class="animated bounceOutDown">
+      <router-view></router-view>
+    </transition>
+
     <mz-footer></mz-footer>
   </div>
 </template>
@@ -12,7 +15,7 @@ import MzFooter from "@/components/MzFooter/Index.vue";
 
 export default {
   components: {
-   "mz-footer":MzFooter
+    "mz-footer": MzFooter
   }
 };
 </script>
